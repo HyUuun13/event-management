@@ -1,0 +1,39 @@
+<div class="columns is-multiline">
+
+    <% persons.forEach( function(person) { %>
+
+        <div class="column is-half">
+            <div class="box">
+                <!-- <div class="columns is-mobile">
+                    <div class="column">
+                        <figure class="image ">
+                            <img class="has-ratio" width="150" height="120" src="<%= person.imageUrl %>">
+                          </figure> 
+                    </div>
+                    <div class="column"></div>
+                    <div class="box">
+                        <strong><%= person.event %></strong>
+                      </div>
+                      <p><a href="/person/read/<%= person.id %>"><%= person.description %></p>
+
+                </div> -->
+
+              <article class="media">
+                <div class="media-left">
+                  <figure class="image is-128x128">
+                    <img  src="<%= person.imageUrl %>">
+                  </figure>       
+                </div>
+                <div class="media-content">
+        
+                  <div class="box">
+                    <strong><%= person.event %></strong>
+                  </div>
+                  <p><a href="/person/read/<%= person.id %>"><%= person.description %></p>
+        
+                </div>
+              </article>
+            </div>
+          </div>
+    <% }); %>
+</div>

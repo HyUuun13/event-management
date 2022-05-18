@@ -1,0 +1,98 @@
+<table class="table is-bordered is-striped is-hoverable is-fullwidth">
+    <tr>
+        <th>Event Name</th>
+        <td><%= person.event %></td>
+    </tr>
+
+    <tr>
+        <th>Short Description</th>
+        <td><%= person.description %></td>
+    </tr>
+
+    <tr>
+        <th>Long Description</th>
+        <td><%= person.Ldescription %></td>
+    </tr>
+
+    <tr>
+        <th>Image Url</th>
+        <td><%= person.imageUrl %></td>
+        <img src="<%= person.imageUrl %>">
+    </tr>
+
+    <tr>
+        <th>Organizer</th>
+        <td><%= person.organizer %></td>
+    </tr>
+
+    <tr>
+        <th>Event Date</th>
+        <td><%= person.date %></td>
+    </tr>
+
+    <tr>
+        <th>Start Time</th>
+        <td><%= person.stime %></td>
+    </tr>
+
+    <tr>
+        <th>End Time</th>
+        <td><%= person.etime %></td>
+    </tr>
+
+    <tr>
+        <th>Venue</th>
+        <td><%= person.venue %></td>
+    </tr>
+
+    <tr>
+        <th>Quota</th>
+        <td><%= person.quota %></td>
+    </tr>
+
+    <tr>
+        <th>Highlight</th>
+        <td><%= person.highlight %></td>
+    </tr>
+
+</table>
+
+<div class="control">
+    <button class="button is-warning" id="update" style="display:none"
+        onclick="window.location.href='/person/update/<%= person.id %>'">Update</button>
+</div>
+
+<div class="control">
+    <button class="button is-link" id="register" style="display:none"
+        onclick="window.location.href='/user/registeredEvents/add/<%= person.id %>'">Register</button>
+</div>
+
+<div class="control">
+    <button class="button is-info is-light" id="cancel" style="display:none"
+        onclick="window.location.href='/user/registeredEvents/remove/<%= person.id %>'">Cancel</button>
+</div>
+
+<script>
+    function check() {
+        var update = document.getElementById("update");
+        var register = document.getElementById("register");
+        var cancel = document.getElementById("cancel");
+        var userrole = "<%= req.session.role %>";
+        var username = "<%= req.session.username %>";
+        var user = "<%= event.registeredStudents %>";
+        var quota = "<%= person.quota %>"
+
+        //var thatPerson = await Person.findOne("<%= person.id %>").populate("registeredStudents", {id: req.session.userid});
+
+        if (userrole == "admin") {
+            update.style.display = "inline";
+        } else if (userrole == "students") {
+            if (user.length > 0) {
+                cancel.style.display = "inline";
+            } else if(quota > 0 && user.length <= 0) { register.style.display = "inline"; }
+
+        }
+    }
+
+    check();
+</script>

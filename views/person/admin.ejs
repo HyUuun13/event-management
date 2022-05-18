@@ -1,0 +1,12 @@
+<!--admin.ejs-->
+<table class="table is-bordered is-striped is-hoverable is-fullwidth">
+    
+    <tr><td><strong>ID</strong></td><td><strong>Event</strong></td><td><strong>Organizer</strong></td><td><strong>Registered Students</strong></td></tr>
+
+    <% persons.forEach( function(person) { %>
+    
+        <tr><td><%= person.id %></td><td><a href="/person/read/<%= person.id %>"><%= person.event %></td><td><%= person.organizer %></td><td><a href="/person/registeredStudents/<%= person.id %>">Registered Students</td></tr>
+    
+    <% }); %>
+
+</table>

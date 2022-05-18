@@ -1,0 +1,122 @@
+<!--create.ejs-->
+
+<form action="/person/create" method="post">
+    <div class="columns">
+        <div class="column is half">
+
+    <div class="field">
+        <label class="label">Event Name</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="Text input" name="event" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Short Description</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="Text input" name="description" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Long Description</label>
+        <div class="control">
+            <textarea class="textarea" name="Ldescription" placeholder="Textarea" rows="4"></textarea>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Image Url</label>
+        <div class="control">
+            <input class="input" type="url" name="imageUrl" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Organizer</label>
+        <div class="control">
+            <div class="select">
+                <select name="organizer">
+                    <option value="">Select dropdown</option>
+                    <option value="Department of Computer Science">Department of Computer Science</option>
+                    <option value="Music Society">Music Society</option>
+                    <option value="Registry">Registry</option>
+                    <option value="Student Union">Student Union</option>                                       
+                </select>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="column">
+
+
+    <div class="field">
+        <label class="label">Event Date</label>
+        <div class="control">
+            <input class="input" type="date" name="date" required>
+        </div>
+    </div>
+
+
+
+    <div class="field">
+        <label class="label">Start Time</label>
+        <div class="control">
+            <input class="input" type="time" name="stime" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">End Time</label>
+        <div class="control">
+            <input class="input" type="time" name="etime" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Venue</label>
+        <div class="control">
+            <div class="select">
+                <select name="venue">
+                    <option value="">Select dropdown</option>
+                    <option value="AAB">AAB</option>
+                    <option value="DLB">DLB</option>
+                    <option value="OEE">OEE</option>
+                    <option value="WLB">WLB</option>                                       
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Quota</label>
+        <div class="control">
+            <input class="input" type="number" placeholder="Text input" name="quota" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox"  name="highlight" value="yes">
+            Highlight Event
+          </label>
+        </div>
+      </div>
+
+
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button type="submit" class="button is-link">Submit</button>
+        </div>
+        <div class="control">
+          <button type="reset" class="button is-link is-light">Cancel</button>
+        </div>
+      </div>
+    </div>
+    </div>
+</form>
+
